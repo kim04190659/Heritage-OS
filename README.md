@@ -18,15 +18,15 @@
 - `/knowledge-assets/`: 実際のナレッジ蓄積 (旧 docs-knowledge)
 - `/app-layers/`: 自治体別アプリ層 (旧 apps-local-gov)
 
-
 ## 🌿 今週の知恵 (Weekly Digest)
-*最終更新: 2026-01-17 14:25*
+*最終更新: 2026-01-17 14:32*
 
-- **週間ナレッジ蓄積数**: `2` 件
-- **ナレッジ総資産**: `2` 件
+- **週間ナレッジ蓄積数**: `3` 件
+- **ナレッジ総資産**: `3` 件
 
 ### 💡 特筆すべき成功パターン (Highlights)
 - Simulation: Negotiation with Landowner B
+- Road 305 Negotiation: Final Agreement with Landowner Mr. X
 - 実例アーカイブ：国道305号線 用地交渉の記録 (2024年度)
 
 ---

@@ -23,6 +23,12 @@ def mock_ai_inference(text):
         logic = "Decision made based on long-term trust building rather than immediate efficiency."
     if "怒り" in text or "anger" in text:
         emotion = "Tense situation requiring de-escalation."
+    
+    # Specific logic for Sato's case (Demo)
+    if "仏壇" in text or "お孫さん" in text:
+        logic = "Shifted value proposition from 'financial compensation' to 'family safety and heritage succession'."
+        emotion = "Resolution of guilt towards ancestors; relief from isolation."
+
         
     return logic, emotion
 
