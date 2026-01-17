@@ -1,0 +1,22 @@
+# General
+.DS_Store
+*.log
+tmp/
+temp/
+node_modules/
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# Environment variables & Secrets
+.env
+.env.local
+*.secret
+id_rsa
+key.pem
+
+# NotebookLM / AI Index intermediate files (if any)
+# (index-for-ai.md is vital, so keep it)
