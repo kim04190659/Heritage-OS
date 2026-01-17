@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Heritage Knowledge Artifact",
+  "description": "Schema for storing multimodal knowledge artifacts with AI-enriched metadata.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "created_at",
+    "source_metadata",
+    "content",
+    "git_metadata"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the knowledge artifact."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the knowledge."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the knowledge was captured."
+    },
+    "source_metadata": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "interview_audio",
+            "video",
+            "handwritten_note",
+            "existing_document",
+            "field_log"
+          ],
+          "description": "Type of the source input."
+        },
+        "captured_by": {
+          "type": "string",
+          "description": "ID of the professional service staff or user who captured this."
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": { "type": "number" },
+            "longitude": { "type": "number" },
+            "place_name": { "type": "string" }
+          }
+        },
+        "tags_at_capture": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tags added during real-time logging (Feature #2)."
+        }
+      },
+      "required": ["type"]
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "description": "Transcribed text or raw content."
+        },
+        "summary": {
+          "type": "string",
+          "description": "AI generated summary."
+        },
+        "file_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the original binary file (video/audio) stored in blob storage."
+        }
+      }
+    },
+    "ai_analysis": {
+      "type": "object",
+      "description": "Enriched metadata by AI Context Engine (Feature #3).",
+      "properties": {
+        "judgment_logic": {
+          "type": "string",
+          "description": "Why a certain decision was made (The 'Why')."
+        },
+        "emotional_context": {
+          "type": "string",
+          "description": "Emotional background of stakeholders."
+        },
+        "legal_basis": {
+          "type": "string",
+          "description": "Related laws or regulations."
+        },
+        "risk_factors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Potential risks or pitfalls identified."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "git_metadata": {
+      "type": "object",
+      "description": "Metadata for GitHub Mirroring (Feature #4).",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "Relative path to the markdown file in the repository."
+        },
+        "last_commit_hash": {
+          "type": "string",
+          "description": "Hash of the last commit modifying this knowledge."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "review", "published", "archived"],
+          "default": "draft"
+        }
+      },
+      "required": ["file_path", "status"]
+    }
+  }
+}
